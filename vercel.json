@@ -1,0 +1,7 @@
+{
+  "framework": "nextjs",
+  "rootDirectory": "nextjs-supabase-boilerplate-main",
+  "buildCommand": "pnpm install && pnpm run build",
+  "installCommand": "pnpm install"
+}
+
