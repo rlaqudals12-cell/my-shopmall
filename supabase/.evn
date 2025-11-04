@@ -1,0 +1,13 @@
+https://apevpxglfvdjouzanadg.supabase.co
+# Clerk
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="your_next_public_clerk_publishable_key"
+CLERK_SECRET_KEY="your_clerk_secret_key"
+NEXT_PUBLIC_CLERK_SIGN_IN_URL="/sign-in"
+NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL="/"
+NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL="/"
+
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL="https://apevpxglfvdjouzanadg.supabase.co"
+NEXT_PUBLIC_SUPABASE_ANON_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFwZXZweGdsZnZkam91emFuYWRnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3MDE4NzYsImV4cCI6MjA3NzI3Nzg3Nn0.qL_tH-2E1F57xIyLvbcdObmOkbI89LVTWr0Ft2D66wc"
+SUPABASE_SERVICE_ROLE_KEY="your_supabase_service_role_key"
+NEXT_PUBLIC_STORAGE_BUCKET="uploads"
