@@ -32,6 +32,12 @@ export default function AuthTestPage() {
 
   // Supabase 연결 테스트
   const testConnection = useCallback(async () => {
+    if (!supabase) {
+      setConnectionStatus("error");
+      setError("Supabase 클라이언트를 초기화할 수 없습니다.");
+      return;
+    }
+
     try {
       setConnectionStatus("testing");
       setError(null);
@@ -51,7 +57,7 @@ export default function AuthTestPage() {
 
   // 사용자 데이터 가져오기 또는 생성
   const fetchOrCreateUser = useCallback(async () => {
-    if (!user) return;
+    if (!user || !supabase) return;
 
     try {
       setLoading(true);
@@ -102,7 +108,7 @@ export default function AuthTestPage() {
 
   // 이름 업데이트
   const updateName = async () => {
-    if (!user || !newName.trim()) return;
+    if (!user || !newName.trim() || !supabase) return;
 
     try {
       setError(null);
