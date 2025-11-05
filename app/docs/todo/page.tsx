@@ -23,11 +23,10 @@ export default async function TODOPage() {
   let content: string;
   
   // 여러 가능한 경로 시도
-  // Vercel 배포 시 프로젝트 루트가 nextjs-supabase-boilerplate-main이므로
+  // Vercel 배포 시 Root Directory가 빈 값이므로 프로젝트 루트에서 직접 찾음
   const possiblePaths = [
-    join(process.cwd(), "docs", "TODO.md"),
-    join(process.cwd(), "nextjs-supabase-boilerplate-main", "docs", "TODO.md"),
-    join(process.cwd(), "..", "docs", "TODO.md"), // 상위 디렉토리 확인
+    join(process.cwd(), "docs", "TODO.md"), // 프로젝트 루트의 docs 폴더
+    join(process.cwd(), "..", "docs", "TODO.md"), // 상위 디렉토리 확인 (개발 환경)
   ];
   
   let fileRead = false;
