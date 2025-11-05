@@ -14,22 +14,19 @@ import { XCircle, Home, ShoppingCart } from "lucide-react";
  */
 
 interface PaymentFailPageProps {
-  searchParams: {
-    orderId?: string;
-    error?: string;
-  };
+  searchParams: Promise<{ orderId?: string; error?: string }>
 }
 
-export default async function PaymentFailPage({
-  searchParams,
-}: PaymentFailPageProps) {
+export default async function PaymentFailPage(
+  props: PaymentFailPageProps,
+) {
   const { userId } = await auth();
 
   if (!userId) {
     redirect("/sign-in");
   }
 
-  const { orderId, error } = searchParams;
+  const { orderId, error } = await props.searchParams;
 
   return (
     <div className="container mx-auto px-4 py-16">
