@@ -1,6 +1,6 @@
 // 장바구니 타입 정의
 
-import { Product } from "./product";
+import { ProductWithImage } from "./product";
 
 export interface CartItem {
   id: string;
@@ -12,7 +12,7 @@ export interface CartItem {
 }
 
 export interface CartItemWithProduct extends CartItem {
-  product: Product;
+  product: ProductWithImage;
 }
 
 export interface CartSummary {
