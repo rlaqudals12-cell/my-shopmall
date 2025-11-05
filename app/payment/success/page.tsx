@@ -15,21 +15,19 @@ import { CheckCircle2, Home, Package } from "lucide-react";
  */
 
 interface PaymentSuccessPageProps {
-  searchParams: {
-    orderId?: string;
-  };
+  searchParams: Promise<{ orderId?: string }>
 }
 
-export default async function PaymentSuccessPage({
-  searchParams,
-}: PaymentSuccessPageProps) {
+export default async function PaymentSuccessPage(
+  props: PaymentSuccessPageProps,
+) {
   const { userId } = await auth();
 
   if (!userId) {
     redirect("/sign-in");
   }
 
-  const { orderId } = searchParams;
+  const { orderId } = await props.searchParams;
 
   if (!orderId) {
     redirect("/");
