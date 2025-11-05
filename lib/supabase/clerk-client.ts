@@ -34,18 +34,26 @@ export function useClerkSupabaseClient() {
   const { getToken } = useAuth();
 
   const supabase = useMemo(() => {
+    // 클라이언트에서만 환경 변수 체크 (빌드 타임 체크 방지)
+    if (typeof window === "undefined") {
+      // 서버 사이드에서는 더미 클라이언트 반환 (빌드 타임 방지)
+      return createClient("https://placeholder.supabase.co", "placeholder-key", {
+        async accessToken() {
+          return null;
+        },
+      });
+    }
+
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
     // Debug: 출력은 민감정보 노출 방지를 위해 길이만 표시
-    if (typeof window !== "undefined") {
-      console.log(
-        "[EnvCheck] SUPABASE_URL exists:",
-        Boolean(supabaseUrl),
-        "| ANON_KEY length:",
-        supabaseKey?.length ?? 0,
-      );
-    }
+    console.log(
+      "[EnvCheck] SUPABASE_URL exists:",
+      Boolean(supabaseUrl),
+      "| ANON_KEY length:",
+      supabaseKey?.length ?? 0,
+    );
 
     if (!supabaseUrl) {
       throw new Error(
