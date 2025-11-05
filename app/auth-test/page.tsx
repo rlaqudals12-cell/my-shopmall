@@ -7,6 +7,9 @@ import { Button } from "@/components/ui/button";
 import { LuShield, LuCheck, LuX, LuTriangleAlert } from "react-icons/lu";
 import Link from "next/link";
 
+// 빌드 타임 정적 생성을 방지하여 동적 페이지로 만듦
+export const dynamic = "force-dynamic";
+
 interface UserData {
   id: string;
   clerk_id: string;
