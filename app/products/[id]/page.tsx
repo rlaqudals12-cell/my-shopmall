@@ -6,9 +6,7 @@ import { Card } from "@/components/ui/card";
 import { getProductById } from "@/actions/products";
 
 interface ProductDetailPageProps {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }>
 }
 
 function ProductDetailSkeleton() {
@@ -47,10 +45,10 @@ async function ProductDetailContent({ productId }: { productId: string }) {
   return <ProductDetail product={product} />;
 }
 
-export default async function ProductDetailPage({
-  params,
-}: ProductDetailPageProps) {
-  const { id } = params;
+export default async function ProductDetailPage(
+  props: ProductDetailPageProps,
+) {
+  const { id } = await props.params;
 
   return (
     <div className="container mx-auto px-4 py-8">
