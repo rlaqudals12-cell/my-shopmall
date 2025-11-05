@@ -40,7 +40,6 @@ export function PaymentWidget({
   onFail,
 }: PaymentWidgetProps) {
   const [isLoading, setIsLoading] = useState(false);
-  const [paymentKey, setPaymentKey] = useState<string | null>(null);
 
   const handlePayment = async () => {
     setIsLoading(true);
@@ -63,7 +62,6 @@ export function PaymentWidget({
         return;
       }
 
-      setPaymentKey(result.paymentKey);
 
       // 모의 결제 모드
       if (MOCK_PAYMENT) {

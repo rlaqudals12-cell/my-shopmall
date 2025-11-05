@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { ProductDetail } from "@/components/product-detail";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Card } from "@/components/ui/card";
 import { getProductById } from "@/actions/products";
 
 interface ProductDetailPageProps {

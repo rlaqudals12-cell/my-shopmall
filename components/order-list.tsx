@@ -29,16 +29,7 @@ export function OrderList({ orders }: OrderListProps) {
     }).format(price);
   };
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return new Intl.DateTimeFormat("ko-KR", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
-    }).format(date);
-  };
+  // 긴 형식 날짜 포맷터는 현재 미사용
 
   const formatShortDate = (dateString: string) => {
     const date = new Date(dateString);

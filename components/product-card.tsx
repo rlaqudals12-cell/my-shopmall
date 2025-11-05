@@ -12,7 +12,7 @@ import { AddToCartDialog } from "@/components/add-to-cart-dialog";
 import { addToCart } from "@/actions/cart";
 
 interface ProductCardProps {
-  product: Product;
+  product: Product & { image_url?: string | null };
   showBadge?: boolean;
   badgeText?: string;
 }

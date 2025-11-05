@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Product } from "@/types/product";
+import { ProductWithImage } from "@/types/product";
 import { Skeleton } from "@/components/ui/skeleton";
 
 interface ProductImageGalleryProps {
-  product: Product;
+  product: ProductWithImage;
 }
 
 export function ProductImageGallery({ product }: ProductImageGalleryProps) {

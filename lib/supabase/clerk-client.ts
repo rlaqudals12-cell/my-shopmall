@@ -39,7 +39,6 @@ export function useClerkSupabaseClient() {
 
     // Debug: 출력은 민감정보 노출 방지를 위해 길이만 표시
     if (typeof window !== "undefined") {
-      // eslint-disable-next-line no-console
       console.log(
         "[EnvCheck] SUPABASE_URL exists:",
         Boolean(supabaseUrl),

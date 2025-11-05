@@ -14,7 +14,7 @@ import { XCircle, Home, ShoppingCart } from "lucide-react";
  */
 
 interface PaymentFailPageProps {
-  searchParams: Promise<{ orderId?: string; error?: string }>
+  searchParams: Promise<Record<string, string | string[] | undefined>>
 }
 
 export default async function PaymentFailPage(
@@ -26,7 +26,9 @@ export default async function PaymentFailPage(
     redirect("/sign-in");
   }
 
-  const { orderId, error } = await props.searchParams;
+  const searchParams = await props.searchParams;
+  const orderId = typeof searchParams.orderId === "string" ? searchParams.orderId : undefined;
+  const error = typeof searchParams.error === "string" ? searchParams.error : undefined;
 
   return (
     <div className="container mx-auto px-4 py-16">

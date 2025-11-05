@@ -36,7 +36,7 @@ export default async function TODOPage() {
       content = await readFile(filePath, "utf-8");
       fileRead = true;
       break;
-    } catch (error) {
+    } catch {
       // 다음 경로 시도
       continue;
     }
