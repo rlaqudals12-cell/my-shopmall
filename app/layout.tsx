@@ -28,8 +28,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+
+  if (!publishableKey) {
+    throw new Error(
+      "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY가 설정되지 않았습니다. 환경 변수를 확인해주세요."
+    );
+  }
+
   return (
-    <ClerkProvider localization={koKR}>
+    <ClerkProvider publishableKey={publishableKey} localization={koKR}>
       <html lang="ko">
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
