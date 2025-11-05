@@ -32,21 +32,18 @@ import { CancelOrderButton } from "@/components/cancel-order-button";
  */
 
 interface OrderDetailPageProps {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }>
 }
 
-export default async function OrderDetailPage({
-  params,
-}: OrderDetailPageProps) {
+export default async function OrderDetailPage(
+  props: OrderDetailPageProps,
+) {
+  const { id } = await props.params;
   const { userId } = await auth();
 
   if (!userId) {
     redirect("/sign-in");
   }
-
-  const { id } = params;
   const { order, error } = await getOrderById(id);
 
   if (error || !order) {
