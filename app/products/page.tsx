@@ -7,11 +7,11 @@ import { ProductCategory } from "@/types/product";
 import { ProductsFilter } from "@/components/products-filter";
 
 interface ProductsPageProps {
-  searchParams: {
+  searchParams: Promise<{
     category?: string;
     sort?: string;
     page?: string;
-  };
+  }>
 }
 
 const ITEMS_PER_PAGE = 12;
@@ -98,8 +98,8 @@ async function ProductsList({
   );
 }
 
-export default async function ProductsPage({ searchParams }: ProductsPageProps) {
-  const { category, sort, page } = searchParams;
+export default async function ProductsPage(props: ProductsPageProps) {
+  const { category, sort, page } = await props.searchParams;
 
   return (
     <div className="container mx-auto px-4 py-8">
